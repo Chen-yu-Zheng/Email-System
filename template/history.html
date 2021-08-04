@@ -1,0 +1,86 @@
+<!--#文件名：history.html
+#作者：郑晨宇
+#描述：前端页面类
+#创建时间：2021/7/15 11：43
+#修改人：〈修改人〉
+#修改时间：YYYY-MM-DD
+#修改内容：〈修改内容〉-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="static/logo.ico" type="img/x-ico" />
+    <meta charset="UTF-8">
+    <title>收件箱列表</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="static/history.css">
+
+    <script type="text/javascript">
+      function deleteQipaElement(Obj) {
+          Obj.parentNode.parentNode.parentNode.removeChild(Obj.parentNode.parentNode);
+          alert('您已成功删除这封邮件');
+      }
+    </script>
+</head>
+<body>
+     <div class="dh"><p>disappear</p></div>
+     <div class="dh">
+        <ul>&nbsp;
+            <li>
+              <a href="index">
+                <span class="icon"><i class="fa fa-home"></i></span>
+              <b>主页</b></a></li>
+
+              <li><a href="submit">
+                <span class="icon"><i class="fa fa-picture-o"></i></span>
+                <b>写邮件</b></a></li>
+
+        </ul>
+      </div>
+      
+      <div class="dh"><p><b>disappear</b></p></div>
+
+      <div class='texts' ><input type="image"  src="/static/superbear.png" >
+        <b><font face='微软雅黑' size="4" color='#788cc8'>
+         <div title="Click here to login"><a href="/login">{{'Please Login' if user_id=='' else ''}}</a></div>
+		     <div title="Click here to logout"><a href="/log_out">{{'' if user_id=='' else 'Logout'}}</a></div>
+        </b>
+      </div>
+
+      <hr>
+
+      <div class="box">
+      {% if len(from_list) == 0 %}
+      <h1>收件箱登录</h1>
+      <form action="/turnHistory" method="post">
+      <input type="text" name="addr" id="addr" required="required" placeholder="我的邮箱地址" />
+      <input type="password" name="mypassword" id="mypassword" required="required" placeholder="我的邮箱密码" />
+      <input type="submit" name="send" id="send" value="查看收件箱" onclick="alert('您已成功刷新收件箱')" />
+      </form>
+      {% end %}
+      
+      {% if len(from_list) != 0 %}
+      <h1>您的收件箱内容</h1>
+      {% end %}
+      
+      <ul>
+      {% for i in range(len(from_list)) %}
+        <li>
+          <ul>
+            <li>发件人：{{from_list[i]}}</li>
+            <li>邮件主题：{{topic_list[i]}}</li>
+            <li>邮件内容:{{body_list[i]}}</li>
+            <li><input type="button" value="删除邮件" onclick="deleteQipaElement(this)" /></li>
+          </ul>
+        </li>
+      {% end %}
+      </ul>
+      </div>
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!--#文件名：Login.html
+#作者：王存策
+#描述：前端页面类
+#创建时间：2021/7/12 9：10
+#修改人：〈修改人〉
+#修改时间：YYYY-MM-DD
+#修改内容：〈修改内容〉-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="../static/login.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../static/logo.ico" type="img/x-ico" />
+    <meta charset="utf-8">
+    <title>简易电子邮箱</title>
+    
+  </head>
+  <body>
+    
+      <a href="index" style="text-decoration:none;" >
+        &nbsp; &nbsp;
+        <span class="icon" style="font-size: 80px;" >
+          <i class="fa fa-home" style="color:black"></i>
+        </span>
+      </a>
+
+    <form class="box" action="./login" method="post">
+      <h1>Login</h1>
+      
+      <input type="text" name="userid" id="userid" required="required" placeholder="Username" />
+      <input type="password" name="password" id="password" required="required" placeholder="Password" />
+      <!-- 登陆submit -->
+      <input type="submit" name="denglu" id="denglu" value="Login" />
+      <a href="register" target="_blank"  style="text-decoration:none;"><input type="button" name="zhuce"id="zhuce"value="Register"/></a>
+    
+    </form>
+    <div class="logout" >
+      <a href="/log_out" target="_blank"  style="text-decoration:none;"><input type="button" name="logout"id="logout"value="LOGOUT"/></a>
+    </div>
+
+  </body>
+</html>

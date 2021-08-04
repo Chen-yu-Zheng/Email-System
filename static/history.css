@@ -1,0 +1,238 @@
+/* #文件名：history.css
+#作者：王存策
+#描述：前端页面类
+#创建时间：2021/7/21 16：43
+#修改人：〈修改人〉
+#修改时间：YYYY-MM-DD
+#修改内容：〈修改内容〉 */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "montserrat",sans-serif;
+    box-sizing: border-box;
+}
+p{
+  color: #bebebe;
+}
+
+.box{
+    display: block;
+    width: 800px;
+    padding: 20px 40px 20px 40px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    /*
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    */
+    background: rgba(230, 230, 240, 0.3);
+    text-align: center;
+  }
+  
+  .box h1{
+    color: black;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  
+  .box input[type = "text"],.box input[type = "password"] {
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    border:0;
+    background: none;
+    display: block;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 600px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+  
+  .box input[type = "text"]:focus,.box input[type = "password"]:focus{
+    width: 650px;
+    border-color: #2ecc71;
+  }
+    
+    
+    
+  .box input[type = "button"]{
+  
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #2ecc71;
+    padding: 14px 40px;
+    outline: none;
+    color: black;
+    font-weight: 300;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+    width: 130px;
+  }
+  
+  .box input[type = "button"]:hover{
+        background: #2ecc71;
+  }
+     
+  .box input[type = "submit"]{
+        border:0;
+        background: none;
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        border: 2px solid #2ecc71;
+        padding: 14px 40px;
+        outline: none;
+        color: black;
+        font-weight: 300;
+        border-radius: 24px;
+        transition: 0.25s;
+        cursor: pointer;
+        width: 130px;
+      
+      }
+  .box input[type = "submit"]:hover{
+        background: #2ecc71;
+  }
+  
+  .box textarea{
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width:600px;
+    overflow-y:visible;
+  
+    border:0;
+    background: transparent;
+    text-align: center;
+    font-weight: 200;
+    font-size: 1.5em;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+
+.box ul {
+  width: 600px;
+  display: block;
+  align-items: center;
+  border: 2px solid #3498db;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.box ul ul{
+  width: 600px;
+  display: block;
+  align-items: center;
+  border: 2px solid #3498db;
+}
+
+.box li {
+  list-style: none;
+}
+
+.box hr {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 600px;
+}
+
+.dh {
+justify-content: center;
+align-items: center;
+background-color: #bebebe;
+
+}
+.dh ul {
+width: 60vw;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.dh li {
+list-style: none;
+}
+
+.dh a {
+position: relative;
+color: #262626;
+text-decoration: none;
+padding: 6px 18px;
+/* background-color: #3ce745; */
+transition: background-color 0.8s;
+}
+
+.dh a:hover {
+color: #fff;
+background-color: black;
+}
+
+.dh a::before {
+position: absolute;
+content: "";
+width: 18px;
+height: 18px;
+border: 2px solid black;
+border-width: 0 0 2px 2px;
+left: 0;
+bottom: 0;
+opacity: 0;
+transition: 0.2s;
+}
+
+.dh a::after {
+position: absolute;
+content: "";
+width: 18px;
+height: 18px;
+border: 2px solid black;
+border-width: 2px 2px 0 0;
+top: 0;
+right: 0;
+opacity: 0;
+transition: 0.2s;
+}
+
+.dh a:hover::before {
+left: -8px;
+bottom: -8px;
+opacity: 1;
+}
+
+.dh a:hover::after {
+top: -8px;
+right: -8px;
+opacity: 1;
+}
+
+.texts {
+    display: flex;
+    align-items: center;
+    position: absolute; 
+    top: 0px;
+    right: 0px;
+    padding: 10px;
+    border-radius: 30px;
+    margin-left: 10px;
+    /* background-color: #fff; */
+}

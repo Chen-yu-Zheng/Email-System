@@ -1,0 +1,84 @@
+<!--#文件名：register.html
+#作者：王存策
+#描述：前端页面类
+#创建时间：2021/7/12 9：10
+#修改人：〈修改人〉
+#修改时间：YYYY-MM-DD
+#修改内容：〈修改内容〉-->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="static/logo.ico" type="img/x-ico" />
+    <meta charset="utf-8">
+    <title>简易电子邮箱注册页面</title>
+    <script type="text/javascript" >
+			
+			
+      function name1(){
+      var name=document.getElementById("userid").value;
+      if(name.length==""){
+      document.getElementById("name").innerHTML="The user name cannot be empty."
+      document.getElementById("name").style.color="red";
+      }else{
+      document.getElementById("name").innerHTML=""
+      document.getElementById("name").style.color="green";
+      }
+      }
+
+      
+     
+      function pwd1(){
+      p=document.getElementById("password").value;
+      
+      if(p.length>=6&&p.length<=12)
+      {
+      document.getElementById("pw").innerHTML=""
+      document.getElementById("pw").style.color="green";
+      }else{
+      document.getElementById("pw").innerHTML="Format error, please input 6-12 characters."
+      document.getElementById("pw").style.color="red";
+      }
+      }
+      function validate(){
+      var qpw=document.getElementById("password").value;
+      var qpw2=document.getElementById("password2").value;
+      
+      if(qpw==qpw2 && p.length>=6&&p.length<=12){
+      document.getElementById("pw2").innerHTML="<font color='green'></font>";
+      document.getElementById("button").disabled = false;
+      }
+      else { 
+      document.getElementById("pw2").innerHTML="<font color='red'>The two passwords are different, please try again.</font>";
+      document.getElementById("button").disabled = true;
+      }
+      }
+      
+      </script>
+    <link rel="stylesheet" href="static/register.css">
+  </head>
+  <body>
+    <a href="index" style="text-decoration:none;" >
+      &nbsp; &nbsp;<span class="icon" style="font-size: 80px;" ><i class="fa fa-home" style="color:black"></i></span>
+    </a>
+    
+     <form class="box" action="/register"method="post">
+      <h1>Register</h1> 
+      
+      <input type="text"  onblur="name1()"  name="userid" id="userid" required="required" placeholder="Username" /><span id="name"></span>
+      <input type="password" onblur="pwd1()" name="password" id="password" required="required" placeholder="Password:6-12 characters" /><span id="pw"></span>
+      <input type="password" onkeyup="validate()" name="password2" id="password2" required="required" placeholder="Reconfirm Your Password" /><span id="pw2"></span>
+      <input type="submit" name="zhuce" id="zhuce" value="Register" />
+      
+    
+    </form>
+
+  
+    
+
+
+
+
+
+  </body>
+</html>

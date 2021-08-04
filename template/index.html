@@ -1,0 +1,72 @@
+<!--#文件名：index.html
+#作者：王存策
+#描述：前端页面类
+#创建时间：2021/7/12 9：40-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="static/logo.ico" type="img/x-ico" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简易电子邮箱</title>
+    <link rel="stylesheet" href="static/index.css">
+    <script>
+        function change_pic(){
+        var imgObj = document.getElementById("pic");
+        var Flag=(imgObj.getAttribute("src",2)=="/static/xiong.png")
+        imgObj.src=Flag?"/static/xiong'.png":"/static/xiong.png";
+        }
+        </script>
+</head>
+<body>
+    <div class='texts' >
+        <input type="image"  src="/static/superbear.png" >
+        <b>
+            <font face='微软雅黑' size="4" color='#788cc8'>
+            <div title="Click here to login"><a href="/login">{{'Please Login' if user_id=='' else ''}}</a></div>
+		    <div title="Click here to logout"><a href="/log_out">{{'' if user_id=='' else 'Logout'}}</a></div>
+        </b>
+    </div>
+    <!-- <div class="text" style=" text-align:center;"><font face='微软雅黑' size="8" color='#000000'><b>抠抠抠图</b></font></div><br> -->
+    <!-- 名片分三大块
+    最外层的一块a
+    文字一大块b
+    平面圆柱一块c -->
+    <div class="a">
+        <div class="b">
+            <a href="#" onclick="change_pic()">简易邮箱</a>
+            <h2>方便快捷</h2>
+            <span>
+                发送邮件</br>
+                接收邮件<br/>
+                上传附件
+            </span>
+        </div>
+        <div class="c">
+            <!-- --i是用来计算平面圆柱的动效延迟和距离的
+            --w则是用来计算平面圆柱的宽度 -->
+            <div class="d" style="--i:1;--w:1.5"></div>
+            <div class="d" style="--i:2;--w:1.6"></div>
+            <div class="d" style="--i:3;--w:1.4"></div>
+            <div class="d" style="--i:4;--w:1.7"></div>
+            <div class="e" style="--i:1"></div>
+        </div>
+        <!-- 设置图片 -->
+        <div class="f">
+            <input type="image" id="pic" src="/static/email.jfif" change_pic()>
+        </div>
+    </div>
+    <div class="navbar">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <ul>
+            <!-- <li><a href="/login">Login</a></li> -->
+            <li><a href="/submit">写邮件</a></li>
+            <li><a href="/turnHistory">收件箱</a></li> 
+        </ul>
+    </div>
+</body>
+</html>

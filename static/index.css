@@ -1,0 +1,220 @@
+/* #文件名：index.css
+#作者：王存策
+#描述：前端页面类
+#创建时间：2021/7/21 16：43
+#修改人：〈修改人〉
+#修改时间：YYYY-MM-DD
+#修改内容：〈修改内容〉 */
+* {
+    /* 页面初始化 清除页面元素原有的内外边距 */
+	padding: 0;
+	margin: 0;
+}
+body {
+    height: 100vh;
+    background: linear-gradient(rgb(204, 212, 230), rgb(255, 255, 255)); 
+}
+body,
+/* 按钮 */
+.navbar,
+.navbar ul {
+    /* 三个元素都需要弹性布局 写一块 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar {
+    /* 绝对定位 */
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #fff;
+}
+.navbar input {
+    width: 40px;
+        height: 40px;
+    	/* 鼠标移入变小手 */
+	    cursor: pointer;
+	    /* 不透明度为0 直接变透明 */
+	    opacity: 0;
+}
+.navbar span {
+    /* 绝对定位 */
+    position: absolute;
+	left: 25px;
+	    /* 现将两条线都放到一起 然后单独设置第二条线的位置 calc方法可以自动计算数值 */
+        
+	width: 30px;
+	height: 4px;
+	border-radius: 15px;
+	    
+	    /* 这里在解决一个问题 现在span覆盖着复选框 我们鼠标放到span点不中复选框  写这个属性就能解决这个问题 即便鼠标放到span上点击也能够选中或者未选中复选框*/
+	pointer-events: none;
+	    /* 收回来的时候过渡刚好相反 */
+	transition: transform 0.2s ease-in-out, top 0.2s ease-in-out 0.2s;
+}
+.navbar input:checked ~  span:nth-child(2) {
+    top: calc(50% - 10px);
+    transform: rotate(180deg);
+    background-color: #999;
+}
+/* 因为第二条线在navbar这个元素内的第三个位置 所以这里写3 */
+.navbar input:checked ~  span:nth-child(3) {
+    top: calc(50% + 6px);
+    transform: rotate(180deg);
+    background-color: #999;
+}
+.navbar ul {
+    width: 350px;
+	    /* 溢出隐藏 */
+	    overflow: hidden;
+	    /* 现在这个盒子是扁的 待会解决这个问题 */
+	    /* 这个问题出现的原因是 文字被换行显示了 两个汉字竖着排列了 就撑大盒子了 */
+	    /* 这个属性可以让文字就在一行排列 不换行 */
+	    white-space: nowrap;
+	    transition: all 0.5s;
+}
+.navbar ul li {
+    list-style: none;
+    margin: 0 15px;
+}
+.navbar ul li a {
+    /* 取消下划线 */
+    text-decoration: none;  
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+.navbar ul li a:hover {
+    color: #fb7299;
+}
+/* :checked是当选中的复选框的时候 ~ 是兄弟选择器 查找同一级的ul */
+.navbar input:checked ~ ul {
+    width: 0px;
+}
+.navbar span:nth-child(2) {
+    top: calc(50% - 2px);
+    transform: rotate(-135deg);
+    background-color: #fb7299;
+    /* 现在速度太快了 加个过渡 */
+    /* 这是先执行top 然后.3s后执行transform */
+    transition: top 0.2s ease-in-out, transform 0.2s ease-in-out 0.2s;
+}
+.navbar span:nth-child(3) {
+    top: calc(50% - 2px);
+    transform: rotate(-45deg);
+    background-color: #fb7299;
+    transition: top 0.2s ease-in-out, transform 0.2s ease-in-out 0.2s;
+}
+
+
+/* 框框部分 */
+.a {
+    position: relative;
+    width: 700px;
+    height: 400px;
+    border: #fff 10px solid;
+    background-color: rgb(120,140,200);
+    top: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.b {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    
+    left: 0;
+    margin: 75px 50px;
+    transition: 1s;
+
+}
+.b a {
+    text-decoration: none;
+    color: #fff;
+    font: 900 28px '';
+}
+.b h2 {
+     /* 鼠标放开时的动画，第一个值是动画的过渡时间
+    第二个值是延迟一秒后执行动画 */
+    transition: .5s 1s;
+    opacity: 0;
+    color: rgb(30,210,200);
+}
+.b span {
+    transition: .5s 1s;
+    color: #fff;
+    font: 500 15px '';
+    position: absolute;
+    top: 70px;
+}
+.c {
+    position: absolute;
+    top: -130px;
+    right: -240px;
+}
+.d,.e{
+    position: absolute;
+    right: calc(var(--i)*100px);
+    width: calc(var(--w)*40px);
+    height: 500px;
+    overflow: hidden;
+    border-radius: 100px;
+    transform: rotateZ(220deg) translate(0,0);
+    background: rgb(240,220,150);
+    transition: .5s .5s;
+}
+.d:nth-child(2){
+    background: rgb(240,190,230);
+}
+.e {
+    left: -470px;
+    top: -140px;
+    width: 70px;
+    background-color: rgb(90,220,150);
+}
+.a:hover .c div{
+    /* 设置延迟动画 */
+    transition: .5s calc(var(--i)*.1s);
+    /* 移动的轨迹 */
+    transform: rotateZ(220deg) translate(-200px,400px);
+}
+.a:hover .b{
+    transition: 1s .5s;
+    left: 370px;
+}
+.a:hover .b span{
+    transition: 1s .5s;
+    top: 105px;
+}
+.a:hover .b h2{
+    transition: 1s .5s;
+    opacity: 1;
+}
+.f{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    background-image: url("goat.png");
+    background-size: cover;
+    margin: 70px;
+    opacity: 0;
+    transition: .5s;
+}
+.a:hover .f{
+    transition: 1s 1.3s;
+    opacity: 1;
+}
+.texts{
+    display: flex;
+    align-items: center;
+	position: absolute; 
+    top: 0px;
+    left: 0px;
+	padding: 10px;
+	border-radius: 30px;
+    margin-left: 10px;
+	/* background-color: #fff; */
+}
